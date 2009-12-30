@@ -1,4 +1,4 @@
-require File.join(RAILS_ROOT, 'app/models/asset.rb')
+require_dependency File.join(RAILS_ROOT, 'app/models/asset.rb')
 
 class Asset < ActiveRecord::Base
   after_attachment_saved do |record|

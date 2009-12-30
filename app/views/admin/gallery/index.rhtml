@@ -52,7 +52,7 @@
   <% @albums.each do |album| -%>
 		<tr id="album_<%= album.id %>">
 			<td><%= link_to (image_tag(album.cover.public_filename(:thumb)), :action => 'edit', :id => album.id) if album.cover%></td>
-			<td><%= link_to album.title, :action => 'edit', :id => album.id %></td>
+			<td><%= link_to h(album.title), :action => 'edit', :id => album.id %></td>
 			<td><%= album.created_at %></td>
 		</tr>
 	<% end -%>
@@ -62,7 +62,7 @@
 <%= sortable_element 'articles', :tag => 'tr', :complete => visual_effect(:highlight, 'articles'), :url => {:action => :reorder_albums} %>
 
 <!-- begin pagination -->
-<% if @albums.page_count > 1 -%>
+<% if @albums.total_pages > 1 -%>
   <%= will_paginate @albums, :id => 'pagination' %>
 <% end -%>
 <!-- /end pagination -->

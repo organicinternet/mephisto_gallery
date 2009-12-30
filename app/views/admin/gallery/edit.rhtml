@@ -85,7 +85,7 @@
   </tbody>
 </table>
 
-<%= sortable_element 'articles', :tag => 'tr', :complete => visual_effect(:highlight, 'articles'), :url => {:action => :reorder, :id => @album.id} %>
+<%= sortable_element('articles', :tag => 'tr', :complete => visual_effect(:highlight, 'articles'), :url => {:action => :reorder, :id => @album.id}).untaint %>
 
 
 <h3 class="section_divider">Add media to album by uploading</h3>
